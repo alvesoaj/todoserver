@@ -88,10 +88,6 @@ func main() {
         content := c.PostForm("content")
         created_at := c.PostForm("created_at")
         updated_at := c.PostForm("updated_at")
-        fmt.Print("adsfsdf sfsdfsdf sdf sdfs fsd sd fsdf sdf sd")
-        fmt.Print(content)
-        fmt.Print(created_at)
-        fmt.Print(updated_at)
         stmt, err := db.Prepare("INSERT INTO tasks (content, created_at, updated_at) values(?, ?, ?);")
         if err != nil {
             fmt.Print(err.Error())
@@ -145,8 +141,8 @@ func main() {
     })
 
     // DELETE - remove task
-    router.DELETE("/tasks", func(c *gin.Context) {
-        id := c.Query("id")
+    router.DELETE("/tasks/:id", func(c *gin.Context) {
+        id := c.Param("id")
         stmt, err := db.Prepare("DELETE FROM tasks WHERE id = ?;")
         if err != nil {
             fmt.Print(err.Error())
