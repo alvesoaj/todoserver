@@ -141,8 +141,8 @@ func main() {
     })
 
     // DELETE - remove task
-    router.DELETE("/tasks/:id", func(c *gin.Context) {
-        id := c.Param("id")
+    router.DELETE("/tasks", func(c *gin.Context) {
+        id := c.Query("id")
         stmt, err := db.Prepare("DELETE FROM tasks WHERE id = ?;")
         if err != nil {
             fmt.Print(err.Error())
