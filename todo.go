@@ -11,7 +11,7 @@ import (
 )
 
 func main() {
-    // create and open datavese
+    // create and open database
     db, err := sql.Open("sqlite3", "./todo.db")
     if err != nil {
         fmt.Println(err)
@@ -154,5 +154,6 @@ func main() {
             "message": fmt.Sprintf("Successfully deleted user: %s", id),
         })
     })
+    
     router.Run(":4000")
 }
