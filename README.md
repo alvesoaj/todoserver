@@ -1,3 +1,9 @@
+### Packages
+
+`go get "github.com/gin-gonic/gin"`
+
+`go get "github.com/mattn/go-sqlite3"`
+
 ### Build and Run migrate
 
 `go build -o migrate.goapp migrate.go`
